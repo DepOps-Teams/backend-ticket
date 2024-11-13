@@ -1,23 +1,20 @@
-# Gunakan image Node sebagai base
-FROM node:16
+# Use an official Node.js runtime as a parent image
+FROM node:14
 
-# Setel direktori kerja di dalam container
+# Set the working directory in the container
 WORKDIR /backend
 
-# Salin file package.json dan package-lock.json untuk instalasi dependencies
-COPY package.json /backend/
+# Copy the package.json and package-lock.json files
+COPY package*.json ./
 
-# Install dependencies
+# Install any needed dependencies
 RUN npm install
 
-# Salin semua file proyek ke dalam container
-COPY . /backend/
+# Copy the rest of the application code
+COPY . .
 
-# Build aplikasi untuk produksi
-RUN npm run build
+# Expose the port the app runs on
+EXPOSE 3001
 
-# Install http-server secara global untuk menyajikan build
-RUN npm install -g http-server
-
-# Atur command untuk menjalankan server di folder build
-CMD ["http-server", "build", "-c-1"]
+# Command to run the application
+CMD ["node", "server.js"]
