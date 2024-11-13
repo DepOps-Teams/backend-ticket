@@ -17,7 +17,7 @@ app.use(cors({
 
 app.use(bodyParser.json());
 
-const uri = 'mongodb+srv://websitetiket:asri123@cluster0.hgg3m54.mongodb.net/';
+const uri = 'mongodb+srv://kielfrndes2:JwuhIrtUS7FEb1wy@cluster0.tmoy0uj.mongodb.net/tiketWebsite';
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to MongoDB with Mongoose!'))
     .catch((error) => console.error('Error connecting to MongoDB:', error));
