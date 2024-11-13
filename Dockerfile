@@ -2,16 +2,16 @@
 FROM node:16
 
 # Setel direktori kerja di dalam container
-WORKDIR /backend-ticket
+WORKDIR /backend
 
 # Salin file package.json dan package-lock.json untuk instalasi dependencies
-COPY package.json /backend-ticket/
+COPY package.json /backend/
 
 # Install dependencies
 RUN npm install
 
 # Salin semua file proyek ke dalam container
-COPY . /backend-ticket/
+COPY . /backend/
 
 # Build aplikasi untuk produksi
 RUN npm run build
