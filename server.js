@@ -29,3 +29,8 @@ app.use('/produk', historyRoutes);
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
+
+app.get('/', (req, res) => {
+    res.send('Selamat Datang di API Tiket Website');
+}
+);
