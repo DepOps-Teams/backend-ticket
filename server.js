@@ -30,6 +30,12 @@ app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
 
+app.use(express.static(path.join(dirname, 'build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(dirname, 'build', 'index.html'));
+});
+
 app.get('/', (req, res) => {
     res.send('Selamat Datang di API Tiket Website');
 }
