@@ -9,11 +9,7 @@ const historyRoutes = require("./src/routes/historyRouter")
 const app = express();
 const port = 3001;
 
-app.use(cors({
-  origin: 'http://localhost:8080', 
-  methods: ['GET', 'POST', 'PATCH', 'DELETE'], 
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use(cors());
 
 app.use(bodyParser.json());
 
