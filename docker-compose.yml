@@ -1,11 +1,11 @@
 version: "3.8"
 
 services:
-  website-ticket:
+  backend-ticket:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3000:8080" # Peta port 8080 di container ke port 3000 di host
+      - "3001:8080" # Peta port 8080 di container ke port 3000 di host
     environment:
       - NODE_ENV=production
