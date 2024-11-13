@@ -1,23 +1,20 @@
-# Gunakan image Node sebagai base
+# Use Node.js base image
 FROM node:16
 
-# Setel direktori kerja di dalam container
-WORKDIR /Website-Ticket
+# Set working directory
+WORKDIR /backend-ticket
 
-# Salin file package.json dan package-lock.json untuk instalasi dependencies
-COPY package.json /Backend-Ticket/
+# Copy package.json and package-lock.json
+COPY package*.json ./
 
 # Install dependencies
 RUN npm install
 
-# Salin semua file proyek ke dalam container
-COPY . /Backend-Ticket/
+# Copy all source files
+COPY . .
 
-# Build aplikasi untuk produksi
-RUN npm run build
+# Expose the port the app runs on
+EXPOSE 3000
 
-# Install http-server secara global untuk menyajikan build
-RUN npm install -g http-server
-
-# Atur command untuk menjalankan server di folder build
-CMD ["http-server", "build", "-c-1"]
+# Start the server
+CMD ["node", "server.js"]
