@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  website-ticket:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:8080" # Peta port 8080 di container ke port 3000 di host
+    environment:
+      - NODE_ENV=production
