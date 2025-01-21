@@ -15,7 +15,7 @@ app.use(cors({
 
 app.use(bodyParser.json());
 
-const uri = 'mongodb+srv://websitetiket:minikube123@cluster0.hgg3m54.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const uri = 'mongodb+srv://websitetiket:minikube123@cluster0.hgg3m54.mongodb.net/eticket';
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to MongoDB with Mongoose!'))
     .catch((error) => console.error('Error connecting to MongoDB:', error));
